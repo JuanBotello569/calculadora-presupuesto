@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presupuesto Maestro</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="calculator-card">
+        <h1 class="main-title">Calculadora de Presupuesto</h1>
+
+        <div class="form-container">
+            <div class="input-row">
+                <input type="text" id="itemName" placeholder="Ej: Salario, Netflix">
+                <input type="number" id="itemAmount" placeholder="Monto">
+            </div>
+            <div class="input-row">
+                <select id="itemType">
+                    <option value="ingreso">Ingreso (+)</option>
+                    <option value="gasto">Gasto (-)</option>
+                </select>
+                <select id="itemFrequency">
+                    <option value="1">Semanal</option>
+                    <option value="4.33">Mensual</option>
+                    <option value="26">Semestral</option>
+                    <option value="52">Anual</option>
+                </select>
+            </div>
+            <div class="input-row">
+                <input list="currencies" id="currencyInput" placeholder="Moneda (USD, COP...)">
+                <datalist id="currencies"></datalist>
+            </div>
+            <button id="btnAdd" class="btn-submit">Añadir Registro</button>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="metric-box"><small>Ingresos (Mes)</small><p id="totalIngresos">$0</p></div>
+            <div class="metric-box"><small>Gastos (Mes)</small><p id="totalGastos">$0</p></div>
+            <div class="metric-box highlight"><small>Balance Neto (Lo que te queda)</small><p id="totalBalance">$0</p></div>
+            <div class="metric-box highlight"><small>% Gastado</small><p id="percentage">0.0%</p></div>
+        </div>
+
+        <div class="charts-section">
+            <div class="chart-container">
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+
+        <div id="budgetList" class="history-list"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

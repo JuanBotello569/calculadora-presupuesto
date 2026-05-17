@@ -1,0 +1,65 @@
+:root {
+    --primary: #4a90e2;
+    --success: #2ecc71;
+    --danger: #e74c3c;
+    --dark: #2c3e50;
+    --bg: #f0f2f5;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; background: var(--bg); display: flex; justify-content: center; padding: 20px; }
+
+.calculator-card {
+    background: white; width: 100%; max-width: 650px; padding: 25px;
+    border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    overflow: hidden; /* Garantiza contención */
+}
+
+.main-title { text-align: center; color: var(--dark); margin-bottom: 25px; font-size: 1.5rem; }
+
+/* Formulario Responsivo */
+.form-container { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
+.input-row { display: flex; gap: 10px; }
+input, select { padding: 12px; border: 1px solid #ddd; border-radius: 8px; flex: 1; font-size: 14px; outline: none; }
+.btn-submit { padding: 14px; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+.btn-submit:hover { background: #357abd; }
+
+/* Métricas en Grid */
+.metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 30px; }
+.metric-box { background: #fafafa; border: 1px solid #eee; padding: 15px; border-radius: 10px; text-align: center; }
+.metric-box p { font-size: 1.3rem; font-weight: bold; margin-top: 5px; color: var(--dark); }
+.highlight { background: #f0f7ff; border-color: #d1e3f5; }
+
+/* GRÁFICOS: El núcleo de la solución responsiva */
+.charts-section {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los gráficos bajen en pantallas pequeñas */
+    gap: 15px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.chart-container {
+    flex: 1 1 250px; /* Crece, se encoge y tiene un ancho base de 250px */
+    height: 220px; /* Altura controlada */
+    position: relative;
+    background: #fff;
+    border: 1px solid #f0f0f0;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Historial */
+.budget-item { display: flex; justify-content: space-between; padding: 15px; margin-bottom: 10px; border-radius: 8px; background: #fff; border: 1px solid #eee; border-left-width: 6px; }
+.ingreso { border-left-color: var(--success); }
+.gasto { border-left-color: var(--danger); }
+.btn-del { color: var(--danger); border: none; background: transparent; cursor: pointer; font-weight: bold; }
+
+/* Ajustes para móviles extremos */
+@media (max-width: 480px) {
+    .input-row { flex-direction: column; }
+    .metrics-grid { grid-template-columns: 1fr; }
+    .calculator-card { padding: 15px; }
+}
